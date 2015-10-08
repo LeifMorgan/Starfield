@@ -3,7 +3,7 @@ void setup()
 {
 	size(500,500);
 	//your code here
-	
+
 	rParticle  = new NormalParticle[500];
 
 	for(int i = 0; i < rParticle.length; i++){
@@ -12,7 +12,8 @@ void setup()
 }
 void draw()
 {
-	background(0,0,40);
+	background(0,0,20);
+	
 	for(int i = 0; i < rParticle.length; i++){
 		rParticle[i].move();
 		rParticle[i].show();
@@ -27,6 +28,7 @@ class NormalParticle
 	int pColor;
 	double pAngle;
 	double pSpeed;
+	
 
 	NormalParticle(){
 		x = 250.0;
@@ -34,24 +36,19 @@ class NormalParticle
 		pColor = color((int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1));
 		pAngle = (Math.random()*Math.PI*2);
 		pSpeed = 3;
+		
 	}
 
 	void move(){
 		x = (Math.cos(pAngle)*pSpeed + x);
 		y = (Math.sin(pAngle)*pSpeed + y);
-		if(x >= 700 ){
-			x = 250.0;
-		} if (x <= -200){
-			x = 250.0;
-		} if(y >= 700){
-			y = 250.0;
-		} if(y <= -200){
-			y = 250.0;
-		}
+		pAngle = pAngle + 0.1;
+
 
 	}
 
 	void show(){
+		noStroke();
 		fill(pColor);
 		rect((float)x,(float)y,10.0,10.0,10.0);
 	}
