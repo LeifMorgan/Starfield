@@ -4,7 +4,7 @@ void setup()
 	size(500,500);
 	//your code here
 
-	rParticle  = new NormalParticle[500];
+	rParticle  = new NormalParticle[300];
 
 	for(int i = 0; i < rParticle.length; i++){
 		rParticle[i] = new NormalParticle();
@@ -31,8 +31,8 @@ class NormalParticle
 	
 
 	NormalParticle(){
-		x = 250.0;
-		y = 250.0;
+		x = (Math.random()*100+200.0);
+		y = (Math.random()*100+200.0);
 		pColor = color((int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1));
 		pAngle = (Math.random()*Math.PI*2);
 		pSpeed = 3;
@@ -42,7 +42,10 @@ class NormalParticle
 	void move(){
 		x = (Math.cos(pAngle)*pSpeed + x);
 		y = (Math.sin(pAngle)*pSpeed + y);
-		pAngle = pAngle + 0.1;
+		pAngle = pAngle - 0.018;
+
+
+		 
 
 
 	}
@@ -51,7 +54,8 @@ class NormalParticle
 		noStroke();
 		fill(pColor);
 		rect((float)x,(float)y,10.0,10.0,10.0);
-	}
+	
+		}
 }
 
 
