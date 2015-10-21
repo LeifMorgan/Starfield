@@ -51,9 +51,9 @@ class NormalParticle implements Particle
 	NormalParticle(){
 		x = (Math.random()*100+200.0);
 		y = (Math.random()*100+200.0);
-		pColor = color((int)(Math.random()*150+1),(int)(Math.random()*150+1),(int)(Math.random()*150+1));
+		pColor = color((int)(Math.random()*200+100),(int)(Math.random()*200+100),(int)(Math.random()*200+100));
 		pAngle = (Math.random()*Math.PI*2);
-		pSpeed = 2;
+		pSpeed = 2.5;
 		
 	}
 
@@ -73,17 +73,22 @@ class NormalParticle implements Particle
 }
 class NormalParticle1 implements Particles
 {
-	double x1, y1;
-	int cColor;
-	double cAngle;
-	double cSpeed;
+	double x1, y1, x2, y2;
+	int cColor,dColor;
+	double cAngle, dAngle;
+	double cSpeed, dSpeed;
 
 	NormalParticle1(){
 		x1 = (Math.random()*100+200.0);
 		y1 = (Math.random()*100+200.0);
-		cColor = color((int)(Math.random()*220+1),(int)(Math.random()*220+1),(int)(Math.random()*220+1));
+		x2 = 250;
+		y2 = 250;
+		cColor = color((int)(Math.random()*150+75),(int)(Math.random()*150+75),(int)(Math.random()*150+75));
+		dColor = color((int)(Math.random()*100+90),(int)(Math.random()*150+50),(int)(Math.random()*205+50));
 		cAngle = (Math.random()*Math.PI*2);
-		cSpeed = 1;
+		dAngle = (Math.random()*Math.PI*2);
+		cSpeed = 1.8;
+		dSpeed = (Math.random()*3-1.5);
 		
 	}
 
@@ -91,6 +96,10 @@ class NormalParticle1 implements Particles
 		x1 = (Math.cos(cAngle)*cSpeed + x1);
 		y1 = (Math.sin(cAngle)*cSpeed + y1);
 		cAngle = cAngle - 0.018;		
+		x2 = (Math.cos(dAngle)*dSpeed + x2);
+		y2 = (Math.sin(dAngle)*dSpeed + y2);
+		dAngle = dAngle + 0.018;
+		
 
 	}
 
@@ -98,6 +107,8 @@ class NormalParticle1 implements Particles
 		noStroke();
 		fill(cColor);
 		rect((float)x1,(float)y1,10.0,10.0,10.0);
+		fill(dColor);
+		rect((float)x2, (float)y2, 10.0, 10.0,10.0);
 	
 		}
 
