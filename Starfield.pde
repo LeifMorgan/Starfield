@@ -5,8 +5,8 @@ void setup()
 	size(500,500);
 	//your code here
 
-	rParticle  = new Particle[300];
-	tParticle = new Particles[298];
+	rParticle  = new Particle[200];
+	tParticle = new Particles[198];
 
 	for(int i = 0; i < rParticle.length; i++){
 		rParticle[i] = new NormalParticle();
